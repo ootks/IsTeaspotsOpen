@@ -48,7 +48,7 @@ function displayInfo(){
     if(isTeaspotsOpen()){
        $("#IsTeaspotsOpen").text("Yes").addClass("yes");
        var time = howManyHoursLeftUntilClose();
-       $("#TimeLeft").text("Time until close: " + time["hours"] + ":" + time["minutes"] + ":" + time["seconds"]);
+       $("#TimeLeft").text("Hours left until closing: " + time["hours"] + ":" + time["minutes"] + ":" + time["seconds"]);
     }
     else{
         $("#IsTeaspotsOpen").text("No").addClass("no");
