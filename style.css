@@ -1,0 +1,21 @@
+html {
+    background: url("portrait.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+div.header {
+   background-color: rgba(0, 0, 0, 0.5); 
+   font-size: 400%;
+   color: #FFFFFF;
+   padding: 20px;
+   margin: 20px;
+}
