@@ -1,7 +1,7 @@
 function isTeaspotsOpen(){
     var d = new Date();
    //If after 10:30
-    return (10 < d.getHours()) && (d.getHours() == 10 && d.getMinutes() > 30);
+    return (10 < d.getHours()) || (d.getHours() == 10 && d.getMinutes() > 30);
 }
 function howManyMoreHours(){
     var d = new Date();
