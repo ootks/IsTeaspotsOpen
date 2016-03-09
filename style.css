@@ -42,13 +42,6 @@ div.yes {
     margin: 0 auto;
 }
 
-#TimeLeft{
-    text-align: center;
-    color: #FFFFFF;
-    font-family: 'Raleway', sans-serif;
-    font-size: 300%;
-    text-shadow: -1px 0 rbga(200,0,0,0.8), 0 1px rgba(200,0,0,0.8), 1px 0 rbga(200,0,0,0.8), 0 -1px rbga(200,0,0,0.8);
-}
 div.no {
     background-color: rgba(200, 0, 0, 0.8);
     font-size: 600%;
@@ -65,7 +58,7 @@ div.no {
 
 div.page_contents{
     min-height: 100%;
-    margin-bottom: -70px;
+    margin-bottom: -80px;
 }
 
 div.footer {
@@ -73,9 +66,8 @@ div.footer {
    font-size: 300%;
    text-align: right;
    color: #FFFFFF;
-   padding: 10px;
    height: 60px;
-   margin: 0px;
+   padding: 10px;
    font-family: 'Raleway', sans-serif;
 }
 a{
