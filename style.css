@@ -20,3 +20,19 @@ div.header {
    margin: 0px;
    font-family: 'Raleway', sans-serif;
 }
+
+div.yes {
+    background-color: rgba(0, 200, 0, 0.9);
+    font-size: 600%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: #AAFFAA;
+    border-radius: 300px;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
