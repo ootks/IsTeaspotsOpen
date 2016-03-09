@@ -1,10 +1,12 @@
 function isTeaspotsOpen(){
+    var d = new Date();
    //If after 10:30
-    return (10 < getHours()) && (getHours() == 10 && getMinutes() > 30);
+    return (10 < d.getHours()) && (d.getHours() == 10 && d.getMinutes() > 30);
 }
 function howManyMoreHours(){
-    var minutes = 60 - getMinutes;
-    var hours = 23 - getHours();
+    var d = new Date();
+    var minutes = 60 - d.getMinutes();
+    var hours = 23 - d.getHours();
     if(minutes > 0){
         hours = hours - 1;
     }
@@ -16,7 +18,7 @@ function setup(){
         response = "Yes";
     }
     $("#IsTeaspotsOpen").text(response);
-    $("#TimeLeft").text(str(howManyMoreHours()));
+    $("#TimeLeft").text(howManyMoreHours());
 }
 
 $(document).ready(setup);
