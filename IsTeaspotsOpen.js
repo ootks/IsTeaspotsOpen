@@ -11,5 +11,12 @@ function howManyMoreHours(){
     return {hours: hours, minutes: minutes};
 }
 function setup(){
- //   $("").html(
+    var response = "No";
+    if(isTeaspotsOpen()){
+        response = "Yes";
+    }
+    $("#IsTeaspotsOpen").text(response);
+    $("#TimeLeft").text(str(howManyMoreHours()));
 }
+
+$(document).ready(setup);
