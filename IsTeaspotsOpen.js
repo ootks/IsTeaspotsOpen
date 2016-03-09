@@ -28,20 +28,35 @@ function howManyMoreHours(){
     }
     return {hours: hours, minutes: minutes, seconds: seconds};
 }
+
+function howManyHoursLeftUntilClose() {
+    var d = new Date();
+    
+    var hours = 24 - (d.getHours() + 1);
+    var minutes = 60 - (d.getMinutes() + 1);
+    var seconds = 60 - d.getSeconds();
+
+    if (minutes < 10)
+        minutes = "0" + minutes;
+    if (seconds < 10)
+        seconds = "0" + seconds;
+
+    return {hours: hours, minutes: minutes, seconds: seconds};
+}
+
 function displayInfo(){
     if(isTeaspotsOpen()){
        $("#IsTeaspotsOpen").text("Yes").addClass("yes");
-       $("#TimeLeft").hide();
+       var time = howManyHoursLeftUntilClose();
+       $("#TimeLeft").text("Time until close: " + time["hours"] + ":" + time["minutes"] + ":" + time["seconds"]);
     }
     else{
         $("#IsTeaspotsOpen").text("No").addClass("no");
         var time = howManyMoreHours();
-        $("#TimeLeft").show();
         $("#TimeLeft").text("Hours left before opening " + time["hours"] + ":" + time["minutes"]+ ":" + time["seconds"]);
     }
 }
 $(document).ready(function(){
-    $("#TimeLeft").hide();
     displayInfo();
     setInterval(displayInfo, 1000);
 });
