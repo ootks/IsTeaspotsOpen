@@ -21,6 +21,12 @@ div.header {
    font-family: 'Raleway', sans-serif;
 }
 
+div.container {
+    position: absolute;
+    margin-top: 25%;
+    width: 100%;
+}
+
 div.yes {
     background-color: rgba(0, 200, 0, 0.8);
     font-size: 600%;
@@ -34,7 +40,6 @@ div.yes {
     padding-right: 50px;
     width: 200px;
     margin: 0 auto;
-    margin-top: 30px;
 }
 
 #TimeLeft{
@@ -56,7 +61,20 @@ div.no {
     padding-left: 50px;
     padding-right: 50px;
     width: 200px;
-    position: absolute;
-    margin-left: 25%;
-    margin-top: 25%;
+}
+
+div.page_contents{
+    min-height: 100%;
+    margin-bottom: -70px;
+}
+
+div.footer {
+   background-color: rgba(0, 0, 0, 0.7); 
+   font-size: 300%;
+   text-align: right;
+   color: #FFFFFF;
+   padding: 10px;
+   height: 60px;
+   margin: 0px;
+   font-family: 'Raleway', sans-serif;
 }
