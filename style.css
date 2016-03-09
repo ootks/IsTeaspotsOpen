@@ -37,7 +37,13 @@ div.yes {
     margin-top: 30px;
 }
 
-
+#TimeLeft{
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 300%;
+    text-shadow: -1px 0 rbga(200,0,0,0.8), 0 1px rgba(200,0,0,0.8), 1px 0 rbga(200,0,0,0.8), 0 -1px rbga(200,0,0,0.8);
+}
 div.no {
     background-color: rgba(200, 0, 0, 0.8);
     font-size: 600%;
