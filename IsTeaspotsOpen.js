@@ -5,20 +5,43 @@ function isTeaspotsOpen(){
 }
 function howManyMoreHours(){
     var d = new Date();
-    var minutes = 60 - d.getMinutes();
-    var hours = 23 - d.getHours();
-    if(minutes > 0){
+
+    //10:30:00 - h:m:s
+    var seconds = 60 - d.getSeconds();
+    if(seconds < 10){
+        seconds = "0" + seconds;
+    }
+ 
+    if(seconds == 60){
+        seconds = "00";
+    }
+    
+    var minutes = 29 - d.getMinutes();
+    var hours = 10 - d.getHours(); 
+    
+    if(minutes < 0){
+        minutes = 60 +  minutes;
         hours = hours - 1;
     }
-    return {hours: hours, minutes: minutes};
-}
-function setup(){
-    var response = "No";
-    if(isTeaspotsOpen()){
-        response = "Yes";
+    if(minutes < 10){
+        minutes = "0" + minutes;
     }
-    $("#IsTeaspotsOpen").text(response);
-    $("#TimeLeft").text(howManyMoreHours());
+    return {hours: hours, minutes: minutes, seconds: seconds};
 }
-
-$(document).ready(setup);
+function displayInfo(){
+    if(isTeaspotsOpen()){
+       $("#IsTeaspotsOpen").text("Yes").addClass("yes");
+       $("#TimeLeft").hide();
+    }
+    else{
+        $("#IsTeaspotsOpen").text("No").addClass("no");
+        var time = howManyMoreHours();
+        $("#TimeLeft").show();
+        $("#TimeLeft").text("Hours left before opening " + time["hours"] + ":" + time["minutes"]+ ":" + time["seconds"]);
+    }
+}
+$(document).ready(function(){
+    $("#TimeLeft").hide();
+    displayInfo();
+    setInterval(displayInfo, 1000);
+});
