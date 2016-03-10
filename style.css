@@ -21,10 +21,18 @@ div.header {
    font-family: 'Raleway', sans-serif;
 }
 
+div.page_contents{
+    position: relative;
+    min-height: 100%;
+    margin-bottom: -80px;
+}
+
 div.container {
     position: absolute;
-    margin-top: 50%;
+    top: 50%;
+    height: 30%;
     width: 100%;
+    transform: translateY(-50%);    
 }
 
 div.yes {
@@ -54,11 +62,6 @@ div.no {
     padding-left: 50px;
     padding-right: 50px;
     width: 200px;
-}
-
-div.page_contents{
-    min-height: 100%;
-    margin-bottom: -80px;
 }
 
 div.footer {
