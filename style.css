@@ -64,6 +64,7 @@ div.no {
     padding-left: 50px;
     padding-right: 50px;
     width: 200px;
+    margin: 0 auto;
 }
 
 div.footer {
