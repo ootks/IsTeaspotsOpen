@@ -1,16 +1,24 @@
 html {
-    background: url("portrait.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     padding: 0px;
-    filter: blur(100px);
+    height: 100%;
 }
 
 body {
     margin: 0px;
     padding: 0px;
+    height: 100%;
+    background: url("portrait.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+div.page_contents{
+    position: relative;
+    min-height: 100%;
+    margin-bottom: -80px;
+    background-filter: blur(3px);
 }
 
 div.header {
@@ -24,8 +32,9 @@ div.header {
 
 div.container {
     position: absolute;
-    margin-top: 25%;
+    top: 50%;
     width: 100%;
+    transform: translateY(-50%);    
 }
 
 div.yes {
@@ -55,11 +64,7 @@ div.no {
     padding-left: 50px;
     padding-right: 50px;
     width: 200px;
-}
-
-div.page_contents{
-    min-height: 100%;
-    margin-bottom: -80px;
+    margin: 0 auto;
 }
 
 div.footer {
