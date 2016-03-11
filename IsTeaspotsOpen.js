@@ -9,6 +9,7 @@ function getBackground(){
     var background = "url(\"" +background_data["url"] +"\")";
     $('<img/>').attr('src', background_data["url"]).load(function(){
         $("body").css('background-image', background);
+        $(".overlay").fadeOut();
         $("#credit").append("With thanks to "+ background_data["author"] + " for the image");
     });
 }
@@ -66,7 +67,10 @@ function displayInfo(){
     }
 }
 $(document).ready(function(){
+    $(".social_media_buttons").hide();
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+    $(".social_media_buttons").show();
     getBackground();
     displayInfo();
     setInterval(displayInfo, 1000);
