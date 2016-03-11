@@ -82,4 +82,9 @@ div.no {
 a{
     text-decoration:none;
 }
-
+div.title{
+    float:left;
+}
+div.social_media_buttons{
+    float:right;
+}
