@@ -4,10 +4,13 @@ function isTeaspotsOpen(){
     return (10 < d.getHours()) || (d.getHours() == 10 && d.getMinutes() > 30);
 }
 function getBackground(){
+
     var background_data = g_backgrounds[Math.floor(Math.random() * g_backgrounds.length)];
     var background = "url(\"" +background_data["url"] +"\")";
-    $("body").css('background-image', background);
-    $("#credit").append("With thanks to "+ background_data["author"] + "for the image");
+    $('<img/>').attr('src', background_data["url"]).load(function(){
+        $("body").css('background-image', background);
+        $("#credit").append("With thanks to "+ background_data["author"] + " for the image");
+    });
 }
 function howManyMoreHours(){
     var d = new Date();
@@ -63,6 +66,7 @@ function displayInfo(){
     }
 }
 $(document).ready(function(){
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
     getBackground();
     displayInfo();
     setInterval(displayInfo, 1000);
