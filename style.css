@@ -5,6 +5,7 @@ html {
     -o-background-size: cover;
     background-size: cover;
     padding: 0px;
+    filter: blur(100px);
 }
 
 body {
@@ -71,5 +72,6 @@ div.footer {
    font-family: 'Raleway', sans-serif;
 }
 a{
-    all:initial;
+    text-decoration:none;
 }
+
