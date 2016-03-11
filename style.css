@@ -7,7 +7,8 @@ body {
     margin: 0px;
     padding: 0px;
     height: 100%;
-    background: url("portrait.jpg") no-repeat center center fixed;
+
+    background: url("https://lh6.googleusercontent.com/-3LiF-MBl6OE/UO5TXZ724aI/AAAAAAAAE50/JWLqdeEM9QY/s1920-w1920-h1080-c/Colorado%2BRiver%2BSunset.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -22,12 +23,24 @@ div.page_contents{
 }
 
 div.header {
-   background-color: rgba(0, 0, 0, 0.7); 
-   font-size: 400%;
-   color: #FFFFFF;
-   padding: 20px;
-   margin: 0px;
-   font-family: 'Raleway', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    font-size: 400%;
+    text-shadow: 0px 0px 8px #000000;
+    color: #FFFFFF;
+    padding: 20px;
+    margin: 0px;
+    font-family: 'Raleway', sans-serif;
+}
+
+div.footer {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    text-shadow: 0px 0px 10px #000000;
+    font-size: 300%;
+    text-align: right;
+    color: #FFFFFF;
+    height: 60px;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
 }
 
 div.container {
@@ -67,15 +80,6 @@ div.no {
     margin: 0 auto;
 }
 
-div.footer {
-   background-color: rgba(0, 0, 0, 0.7); 
-   font-size: 300%;
-   text-align: right;
-   color: #FFFFFF;
-   height: 60px;
-   padding: 10px;
-   font-family: 'Raleway', sans-serif;
-}
 a{
     all:initial;
 }
