@@ -3,6 +3,12 @@ function isTeaspotsOpen(){
    //If after 10:30
     return (10 < d.getHours()) || (d.getHours() == 10 && d.getMinutes() > 30);
 }
+function getBackground(){
+    var background_data = g_backgrounds[Math.floor(Math.random() * g_backgrounds.length)];
+    var background = "url(\"" +background_data["url"] +"\")";
+    $("body").css('background-image', background);
+    $(".footer").append("<p>With thanks to "+ background_data["author"] + "for the image</p>");
+}
 function howManyMoreHours(){
     var d = new Date();
 
@@ -57,6 +63,7 @@ function displayInfo(){
     }
 }
 $(document).ready(function(){
+    getBackground();
     displayInfo();
     setInterval(displayInfo, 1000);
 });
