@@ -44,7 +44,7 @@ function howManyHoursLeftUntilClose() {
     
     var hours = 24 - (d.getHours() + 1);
     var minutes = 60 - (d.getMinutes() + 1);
-    var seconds = 60 - d.getSeconds();
+    var seconds = 60 - (d.getSeconds() + 1);
 
     if (minutes < 10)
         minutes = "0" + minutes;
