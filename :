@@ -42,7 +42,6 @@ div.footer {
     height: 100px;
     padding: 10px;
     font-family: 'Raleway', sans-serif;
-    padding-right:20px;
 }
 
 div.small_text {
@@ -109,8 +108,7 @@ div.social_media_buttons{
 .time_left{
     display:inline;
 }
-#ti50{
-    float:right;
-    display:inline-block;
-    width:150px;
+#time{
+    display:inline;
+    width:1000px;
 }

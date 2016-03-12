@@ -63,7 +63,7 @@ function displayInfo(){
     else{
         $("#IsTeaspotsOpen").text("No").addClass("no");
         var time = howManyMoreHours();
-        $("#TimeLeft").text("Hours left before opening " + time["hours"] + ":" + time["minutes"]+ ":" + time["seconds"]);
+        $("#time").text(time["hours"] + ":" + time["minutes"]+ ":" + time["seconds"]);
     }
 }
 $(document).ready(function(){
