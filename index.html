@@ -5,6 +5,7 @@
         <script src = "jquery-1.12.1.min.js"></script>
         <script type = "text/javascript" src = "backgrounds.json"></script>
         <script type = "text/javascript" src = "time.js"></script>
+        <script type = "text/javascript" src = "selector.js"></script>
 
         <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -16,17 +17,24 @@
             <div class="page_contents">
                 <div class="header">
                     <div class = "title">
-                        Is Teaspots Open?
+                        Is
+                        <div class="dropdown">
+                            <div class="selected_item" id="selected_item"> 
+                                <span id="selected_name"> Teaspots </span>
+                                <div class="arrow_down"> </div>
+                            </div>
+                            <div id="drop_down_items" style="display:none;">
+                            </div>
+                        </div> 
+                        Open?
                     </div>
-                    <div class = "social_media_buttons" style = "display:none;">
+                    <div class = "social_media_buttons" style="display:none;">
                         <a href="https://twitter.com/intent/tweet?button_hashtag=Teaspots" class="twitter-hashtag-button"></a>
                      </div>
                 </div>
 
                 <div class = "container">
-                    <a href = "https://www.orderaheadapp.com/places/tea-spots--pasadena-ca">
-                        <div id = "IsTeaspotsOpen"></div>
-                    </a>
+                    <div id = "IsTeaspotsOpen"></div>
                 </div>
             </div>
 

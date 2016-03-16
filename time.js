@@ -1,3 +1,5 @@
+var current_restaurant = "Teaspots";
+
 // stores a time (in 24 hours time). Allows you to subtract and compare times.
 function Time(hours, minutes, seconds) {
 
@@ -174,17 +176,17 @@ function displayInfo(){
 
     // var now = new Time(24, 10, 10);
 
-    if(isRestaurantOpen("Teaspots", now, day)){
-       $("#IsTeaspotsOpen").text("Yes").addClass("yes");
-       var time = howManyHoursLeftUntilClose("Teaspots", now, day);
+    if(isRestaurantOpen(current_restaurant, now, day)){
+       $("#IsTeaspotsOpen").text("Yes").removeClass("no").addClass("yes");
+       var time = howManyHoursLeftUntilClose(current_restaurant, now, day);
        $("#time_left").text("Hours left until closing: ");
        $("#time").text(time.hours + ":" + time.minute_string() + ":" + time.second_string());
     }
     else{
-        $("#IsTeaspotsOpen").text("No").addClass("no");
-        var time = howManyHoursLeftUntilOpen("Teaspots", now, day);
+       $("#IsTeaspotsOpen").text("No").removeClass("yes").addClass("no");
+       var time = howManyHoursLeftUntilOpen(current_restaurant, now, day);
        $("#time_left").text("Hours left until opening: ");
-        $("#time").text(time.hours + ":" + time.minute_string()+ ":" + time.second_string());
+       $("#time").text(time.hours + ":" + time.minute_string()+ ":" + time.second_string());
     }
 }
 
@@ -202,7 +204,6 @@ function getBackground(){
 $(document).ready(function(){
     $(".social_media_buttons").hide();
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
     $(".social_media_buttons").show();
     getBackground();
     displayInfo();
