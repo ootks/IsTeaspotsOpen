@@ -1,11 +1,10 @@
 var just_opened = false;
 var selector_open = false;
 
-var restaurants = [["Teaspots", "Teaspots"], ["Dog Haus", "Doghaus"], ["In-N-Out", "Innout"],["Winchells", "Winchells"]]
+var restaurants = [["Teaspots", "Teaspots"], ["Dog Haus", "Doghaus"], ["In-N-Out", "Innout"],["Winchells", "Winchells"],["Test", "test"]]
 
 function show_selector() {
 	if (!selector_open) {
-		just_opened = true;
 		selector_open = true;
         $(".previous").show();
         $(".next").show();
@@ -48,22 +47,25 @@ var lastScrollTop = 0;
 $(document).ready(function(){
     
 	restaurants.forEach(function(name) {
-        selector_divs.push($("<div></div>").text(name[0]).click(function() {
+        selector_divs.push($("<div></div>").text(name[0]).bind("make_current", function(){
+                curr_selector = $(this);
+            }
+		).click(function() {
 				$(".selected_name").text(name[0]);
 				current_restaurant = name[1];
 				document.title = "Is " + name[0] + " Open?";
 				displayInfo();
-                curr_selector = $(this);
+                $(this).trigger("make_current");
                 if(selector_open){
                     hide_selector();
                     requeue();
-                    $(this).show()
+                    $(this).show();
                 }
                 else{
                     show_selector();
-                }
+                }            
 			}).hide()
-		);
+        );
 		$(".dropdown").append(selector_divs[selector_divs.length - 1]);
      });
     curr_selector = selector_divs[0];
@@ -93,8 +95,10 @@ $(document).ready(function(){
     });
 	$('html').click(function(event) {
 		// if (!just_opened && !$(event.target).closest("#drop_down_items").length) {
+        console.log("html clicked");
 		if (!just_opened) {
-            curr_selector.trigger('click');
+            console.log("It's not just been opened");
+            curr_selector.trigger('make_current');
 			hide_selector();
 		}
 		just_opened = false;

@@ -112,7 +112,17 @@ var store_hours = { Teaspots:   [
 									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Thursday 
 									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Friday
 									[new Time(0, 0, 0),    new Time(23, 59, 59)]  // Saturday
-					] };
+					],
+                	test:       [	
+									[new Time(0, 0, 0),    new Time(0, 0, 0)], // Sunday
+									[new Time(0, 0, 0),    new Time(0, 0, 0)], // Monday 
+									[new Time(0, 0, 0),    new Time(0, 0, 0)], // Tuesday
+									[new Time(0, 0, 0),    new Time(0, 0, 0)], // Wednesday
+									[new Time(0, 0, 0),    new Time(0, 0, 0)], // Thursday 
+									[new Time(0, 0, 0),    new Time(0, 0, 0)], // Friday
+									[new Time(0, 0, 0),    new Time(0, 0, 0)]  // Saturday
+					]
+}
 
 function isRestaurantOpen(name, now, weekday){
 	var openings_and_closings = store_hours[name][weekday];
