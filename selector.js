@@ -1,7 +1,7 @@
 var just_opened = false;
 var selector_open = false;
 
-var restaurants = [["Teaspots", "Teaspots"], ["Dog Haus", "Doghaus"], ["In n Out", "Innout"],["Winchells", "Winchells"]]
+var restaurants = [["Teaspots", "Teaspots"], ["Dog Haus", "Doghaus"], ["In-N-Out", "Innout"],["Winchells", "Winchells"]]
 
 function show_selector() {
 	if (!selector_open) {
@@ -25,6 +25,7 @@ $(document).ready(function(){
 				console.log(name);
 				$("#selected_name").text(name[0]);
 				current_restaurant = name[1];
+				document.title = "Is " + name[0] + " Open?";
 				displayInfo();
 			})
 		);
