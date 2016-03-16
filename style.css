@@ -15,11 +15,16 @@ body {
     z-index:-2;
 }
 
+div.wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
 div.page_contents{
     position: relative;
-    min-height: 100%;
-    margin-bottom: -120px;
-    background-filter: blur(3px);
+    display: table-row;
+    height: 100%;
 }
 
 div.header {
@@ -33,16 +38,20 @@ div.header {
     height: 100px;
 }
 
+div.footer_container {
+    display: table-row;
+}
+
 div.footer {
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
     text-shadow: 0px 0px 10px #000000;
     font-size: 300%;
     text-align: right;
     color: #FFFFFF;
-    height: 100px;
     padding: 10px;
+    padding-right: 20px;
     font-family: 'Raleway', sans-serif;
-    padding-right:20px;
+    overflow: auto;
 }
 
 div.small_text {

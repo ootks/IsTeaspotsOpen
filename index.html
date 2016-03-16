@@ -4,38 +4,41 @@
 
         <script src = "jquery-1.12.1.min.js"></script>
         <script type = "text/javascript" src = "backgrounds.json"></script>
-        <script type = "text/javascript" src = "IsTeaspotsOpen.js"></script>
+        <script type = "text/javascript" src = "time.js"></script>
 
         <link rel="stylesheet" type="text/css" href="style.css">
 
         <title>Is Teaspots Open? </title>
     </head>
     <body>
-        <div class = "overlay"></div>
-        <div class="page_contents">
-            <div class="header">
-                <div class = "title">
-                    Is Teaspots Open?
+        <div class="wrapper">
+            <div class="overlay"></div>
+            <div class="page_contents">
+                <div class="header">
+                    <div class = "title">
+                        Is Teaspots Open?
+                    </div>
+                    <div class = "social_media_buttons" style = "display:none;">
+                        <a href="https://twitter.com/intent/tweet?button_hashtag=Teaspots" class="twitter-hashtag-button">Tweet #Teaspots</a>
+                     </div>
                 </div>
-                <div class = "social_media_buttons" style = "display:none;">
-                    <a href="https://twitter.com/intent/tweet?button_hashtag=Teaspots" class="twitter-hashtag-button">Tweet #Teaspots</a>
-                 </div>
-            </div>
 
                 <div class = "container">
-            
-            <a href = "https://www.orderaheadapp.com/places/tea-spots--pasadena-ca">
-                <div id = "IsTeaspotsOpen"></div>
-            </a>
+                    <a href = "https://www.orderaheadapp.com/places/tea-spots--pasadena-ca">
+                        <div id = "IsTeaspotsOpen"></div>
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="footer">
-            <div id="credit" class="small_text">
-            </div>
-            <div id = "TimeLeft">
-                <span class="time_left">Hours left before opening: </span>
-                <span id="time"></span>
+            <div class="footer_container">
+                <div class="footer">
+                    <div id="credit" class="small_text">
+                    </div>
+                    <div id = "TimeLeft">
+                        <span id="time_left" class="time_left">Hours left before opening: </span>
+                        <span id="time"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
