@@ -77,33 +77,42 @@ function Time(hours, minutes, seconds) {
 							   // the first time must be an opening time. For instance, Teaspots opens
 							   // at 10:30 and closes at midnight
 							   // the list must start with an opening and times must be consecutive
-var store_hours = { Teaspots: [
-								[new Time(10, 30, 0), new Time(24, 0, 0)], // Sunday
-								[new Time(10, 30, 0), new Time(24, 0, 0)], // Monday
-								[new Time(10, 30, 0), new Time(24, 0, 0)], // Tuesday
-								[new Time(10, 30, 0), new Time(24, 0, 0)], // Wednesday
-								[new Time(10, 30, 0), new Time(24, 0, 0)], // Thursday
-								[new Time(10, 30, 0), new Time(24, 0, 0)], // Friday
-								[new Time(10, 30, 0), new Time(24, 0, 0)], // Saturday
-							  ],
-					Doghaus:  [
-								[new Time(11, 0, 0),  new Time(22, 0, 0)], // Sunday
-								[new Time(11, 0, 0),  new Time(22, 0, 0)], // Monday
-								[new Time(11, 0, 0),  new Time(22, 0, 0)], // Tuesday
-								[new Time(11, 0, 0),  new Time(22, 0, 0)], // Wednesday
-								[new Time(11, 0, 0),  new Time(22, 0, 0)], // Thursday
-								[new Time(11, 0, 0),  new Time(22, 0, 0)], // Friday
-								[new Time(11, 0, 0),  new Time(22, 0, 0)], // Saturday
-							],
-					Innout: [
-								[new Time(10, 30, 0),  new Time(1, 0, 0)], // Sunday
-								[new Time(10, 30, 0),  new Time(1, 0, 0)], // Monday
-								[new Time(10, 30, 0),  new Time(1, 0, 0)], // Tuesday
-								[new Time(10, 30, 0),  new Time(1, 0, 0)], // Wednesday
-								[new Time(10, 30, 0),  new Time(1, 0, 0)], // Thursday
-								[new Time(10, 30, 0),  new Time(1, 30, 0)], // Friday
-								[new Time(10, 30, 0),  new Time(1, 30, 0)], // Saturday
-							] };
+var store_hours = { Teaspots:   [
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Sunday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Monday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Tuesday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Wednesday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Thursday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Friday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Saturday
+							    ],
+					Doghaus:    [
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Sunday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Monday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Tuesday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Wednesday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Thursday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Friday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Saturday
+							    ],
+					Innout:     [
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Sunday
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Monday
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Tuesday
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Wednesday
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Thursday
+									[new Time(10, 30, 0),  new Time(1, 30, 0)], // Friday
+									[new Time(10, 30, 0),  new Time(1, 30, 0)], // Saturday
+							    ],
+					Winchells:  [	
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Sunday
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Monday 
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Tuesday
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Wednesday
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Thursday 
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Friday
+									[new Time(0, 0, 0),    new Time(23, 59, 59)]  // Saturday
+					] };
 
 function isRestaurantOpen(name, now, weekday){
 	var openings_and_closings = store_hours[name][weekday];

@@ -1,7 +1,7 @@
 var just_opened = false;
 var selector_open = false;
 
-var restaurants = [["Teaspots", "Teaspots"], ["Dog Haus", "Doghaus"], ["In n Out", "Innout"]]
+var restaurants = [["Teaspots", "Teaspots"], ["Dog Haus", "Doghaus"], ["In n Out", "Innout"],["Winchells", "Winchells"]]
 
 function show_selector() {
 	if (!selector_open) {
