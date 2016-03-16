@@ -1,3 +1,5 @@
+var current_restaurant = "Teaspots";
+
 // stores a time (in 24 hours time). Allows you to subtract and compare times.
 function Time(hours, minutes, seconds) {
 
@@ -75,10 +77,45 @@ function Time(hours, minutes, seconds) {
 							   // the first time must be an opening time. For instance, Teaspots opens
 							   // at 10:30 and closes at midnight
 							   // the list must start with an opening and times must be consecutive
-var store_hours = { Teaspots: [new Time(10, 30, 0), new Time(24, 0, 0)]}
+var store_hours = { Teaspots:   [
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Sunday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Monday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Tuesday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Wednesday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Thursday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Friday
+									[new Time(10, 30, 0), new Time(24, 0, 0)], // Saturday
+							    ],
+					Doghaus:    [
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Sunday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Monday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Tuesday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Wednesday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Thursday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Friday
+									[new Time(11, 0, 0),  new Time(22, 0, 0)], // Saturday
+							    ],
+					Innout:     [
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Sunday
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Monday
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Tuesday
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Wednesday
+									[new Time(10, 30, 0),  new Time(1, 0, 0)], // Thursday
+									[new Time(10, 30, 0),  new Time(1, 30, 0)], // Friday
+									[new Time(10, 30, 0),  new Time(1, 30, 0)], // Saturday
+							    ],
+					Winchells:  [	
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Sunday
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Monday 
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Tuesday
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Wednesday
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Thursday 
+									[new Time(0, 0, 0),    new Time(23, 59, 59)], // Friday
+									[new Time(0, 0, 0),    new Time(23, 59, 59)]  // Saturday
+					] };
 
-function isRestaurantOpen(name, now){
-	var openings_and_closings = store_hours[name];
+function isRestaurantOpen(name, now, weekday){
+	var openings_and_closings = store_hours[name][weekday];
 	for (var i = 0; i < openings_and_closings.length - 1; i += 2) {
 
 		// every two elements of the list represents an opening time and a closing time
@@ -97,8 +134,8 @@ function isRestaurantOpen(name, now){
 // assumes that the restaurant is currently closed according to the list of times in
 // store_hours
 // returns -1 if restaurant is not closed
-function howManyHoursLeftUntilOpen(name, now){
-	var openings_and_closings = store_hours[name];
+function howManyHoursLeftUntilOpen(name, now, weekday){
+	var openings_and_closings = store_hours[name][weekday];
 
 	// start at i = 1 to check intervals between a closing time and an opening time
 	for (var i = 1; i < openings_and_closings.length; i += 2) {
@@ -123,8 +160,8 @@ function howManyHoursLeftUntilOpen(name, now){
 // assumes that the restaurant is currently open according to the list of times in
 // store_hours
 // returns -1 if restaurant is not open
-function howManyHoursLeftUntilClose(name, now) {
-	var openings_and_closings = store_hours[name];
+function howManyHoursLeftUntilClose(name, now, weekday) {
+	var openings_and_closings = store_hours[name][weekday];
 	for (var i = 0; i < openings_and_closings.length - 1; i += 2) {
 
 		// every two elements of the list represents an opening time and a closing time
@@ -144,20 +181,21 @@ function howManyHoursLeftUntilClose(name, now) {
 function displayInfo(){
     var d = new Date();
     var now = new Time(d.getHours(), d.getMinutes(), d.getSeconds());
+    var day = d.getDay();
 
     // var now = new Time(24, 10, 10);
 
-    if(isRestaurantOpen("Teaspots", now)){
-       $("#IsTeaspotsOpen").text("Yes").addClass("yes");
-       var time = howManyHoursLeftUntilClose("Teaspots", now);
+    if(isRestaurantOpen(current_restaurant, now, day)){
+       $("#IsTeaspotsOpen").text("Yes").removeClass("no").addClass("yes");
+       var time = howManyHoursLeftUntilClose(current_restaurant, now, day);
        $("#time_left").text("Hours left until closing: ");
        $("#time").text(time.hours + ":" + time.minute_string() + ":" + time.second_string());
     }
     else{
-        $("#IsTeaspotsOpen").text("No").addClass("no");
-        var time = howManyHoursLeftUntilOpen("Teaspots", now);
+       $("#IsTeaspotsOpen").text("No").removeClass("yes").addClass("no");
+       var time = howManyHoursLeftUntilOpen(current_restaurant, now, day);
        $("#time_left").text("Hours left until opening: ");
-        $("#time").text(time.hours + ":" + time.minute_string()+ ":" + time.second_string());
+       $("#time").text(time.hours + ":" + time.minute_string()+ ":" + time.second_string());
     }
 }
 
@@ -173,10 +211,6 @@ function getBackground(){
 }
 
 $(document).ready(function(){
-    $(".social_media_buttons").hide();
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
-    $(".social_media_buttons").show();
     getBackground();
     displayInfo();
     setInterval(displayInfo, 1000);
