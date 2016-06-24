@@ -1,6 +1,7 @@
 var just_opened = false;
 var selector_open = false;
 
+// List of restaurants. The first entry is the name to display. The second is the string used to identify it in the code
 var restaurants = [["Teaspots", "Teaspots"], ["Dog Haus", "Doghaus"], ["In-N-Out", "Innout"],["Winchells", "Winchells"]]
 
 function show_selector() {
